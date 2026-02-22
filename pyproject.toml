@@ -1,0 +1,43 @@
+[project]
+name = "trufflehog-redactor"
+version = "0.1.0"
+description = "Interactive TUI for redacting secrets found by TruffleHog"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = []
+authors = [{name = "Didier Marin", email = "mail@didiermarin.com"}]
+keywords = ["trufflehog", "secrets", "redact", "security"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Environment :: Console :: Curses",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = ["pre-commit", "ruff"]
+
+[project.urls]
+Homepage = "https://github.com/didmar/trufflehog-redactor"
+Repository = "https://github.com/didmar/trufflehog-redactor"
+Issues = "https://github.com/didmar/trufflehog-redactor/issues"
+
+[project.scripts]
+trufflehog-redactor = "trufflehog_redactor.cli:main"
+
+[tool.ruff]
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
